@@ -7,6 +7,7 @@ from typing import List, Dict
 def process_dataset(test_dataset: List[Dict[str, str]], train_dataset: List[Dict[str, str]]):
     train_df = pd.DataFrame(train_dataset)
     test_df = pd.DataFrame(test_dataset)
+    print(test_df)
     refined_set = test_df[~test_df.entity_text.isin(train_df.entity_text)]
     return refined_set.drop_duplicates().to_dict('records')
 

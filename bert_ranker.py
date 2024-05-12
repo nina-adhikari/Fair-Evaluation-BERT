@@ -8,7 +8,7 @@ import numpy as np
 class BERTRanker:
 
     def __init__(self, model_dir: str, vocab: Optional[pd.DataFrame] = None) -> None:
-        word_embedding_model = models.BERT(model_dir)
+        word_embedding_model = models.Transformer(model_dir)
         pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension(),
                                        pooling_mode_mean_tokens=False,
                                        pooling_mode_cls_token=True,
@@ -27,8 +27,9 @@ class BERTRanker:
 
     def vocab2index(self, vocab: pd.DataFrame) -> None:
         self.codes = vocab.label.values
-        self.concept_names = vocab.concept_name.values
-        vocab_embeddings = self.encode(vocab.concept_name.str.lower().tolist())
+        print(vocab)
+        self.concept_names = vocab.text.values
+        vocab_embeddings = self.encode(vocab.text.str.lower().tolist())
         self.tree_index = KDTree(vocab_embeddings)
 
     def predict(self, entity_texts: List[str]) -> np.array:
