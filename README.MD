@@ -50,6 +50,7 @@ $ python eval_bert_ranking.py --model_dir data/DIRECTORY_WHERE_MODEL_WAS_DOWNLOA
 Tutubalina E., Kadurin A., Miftahutdinov Z. Fair Evaluation in Concept Normalization: a Large-scale Comparative Analysis for BERT-based Models 
 //Proceedings of the 28th International Conference on Computational Linguistics. – 2020. – С. 6710-6716.[link](https://www.aclweb.org/anthology/2020.coling-main.588/)
 
+
 BibTex
 
 ```
