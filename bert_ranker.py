@@ -27,7 +27,6 @@ class BERTRanker:
 
     def vocab2index(self, vocab: pd.DataFrame) -> None:
         self.codes = vocab.label.values
-        print(vocab)
         self.concept_names = vocab.text.values
         vocab_embeddings = self.encode(vocab.text.str.lower().tolist())
         self.tree_index = KDTree(vocab_embeddings)
